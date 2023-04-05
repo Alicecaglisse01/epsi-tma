@@ -1,29 +1,30 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Produit} from "../../models/produit/produit.model";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
+import { Produit } from "../../models/produit/produit.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  url : string = 'http://localhost:8000/api/product/';
+  url: string = 'http://localhost:8000/api/product/';
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  removeProduct(product: Produit) {
-    this.http.delete(this.url + product.id).subscribe();
+  removeProduct(product: Produit): Observable<any> {
+    return this.http.delete(this.url + product.id);
   }
 
-  modifyProduct(product: Produit) {
-    this.http.put<Produit>(this.url + product.id,product.serialize()).subscribe();
+  modifyProduct(product: Produit): Observable<any> {
+    return this.http.put<Produit>(this.url + product.id, product.serialize());
   }
 
-  getallProduct(){
+  getallProduct(): Observable<Produit[]> {
     return this.http.get<Produit[]>(this.url);
   }
 
-  createProduct(produit : Produit){
-    this.http.post<Produit>(this.url,produit.serialize()).subscribe();
+  createProduct(produit: Produit): Observable<any> {
+    return this.http.post<Produit>(this.url, produit.serialize());
   }
 }

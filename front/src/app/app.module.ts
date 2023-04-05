@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './components/home/app.component';
 import { StockManagementComponent } from './components/stock-management/stock-management.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +27,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatProgressSpinnerModule,
     MatTooltipModule,
     HttpClientModule,
+    MatIconModule,
     MatSnackBarModule,
     MatButtonModule,
     MatInputModule,

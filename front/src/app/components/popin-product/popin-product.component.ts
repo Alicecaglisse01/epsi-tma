@@ -43,9 +43,18 @@ export class PopinProductComponent{
   }
 
   submit() {
-    this.apiService.createProduct(this.produit);
-    this.dialogRef.close(this.produit);
+    if (!this.produit.name || this.produit.price == undefined || this.produit.quantity == undefined) {
+      alert("Veuillez remplir tous les champs avant d'ajouter le produit.");
+    } else if (this.produit.price < 0) {
+      alert("Le prix du produit doit être supérieur ou égal à zéro.");
+    } else if (this.produit.quantity < 0) {
+      alert("La quantité du produit doit être supérieure ou égale à zéro.");
+    } else {
+      this.apiService.createProduct(this.produit);
+      this.dialogRef.close(this.produit);
+    }
   }
+
 
   statePopin() {
 

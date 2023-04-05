@@ -1,5 +1,96 @@
-.button-responsive{
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  margin-left: 20em;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 }
+
+
+.text-center {
+  margin-top: -100px;
+  text-align: center;
+  color: white;
+  font-size: xx-large;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.table {
+  margin-top: 5%;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  border-collapse: collapse;
+}
+
+.table td,
+.table th {
+  padding: .75rem;
+  vertical-align: top;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid black;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+.spinner {
+  display: block;
+  margin: 0 auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  text-align: center;
+
+}
+.text-danger {
+  color: red;
+  cursor: pointer;
+}
+
+
+
+.button-responsive {
+  display: inline-block;
+}
+
+thead{
+  background-color: #1C2942 ;
+  color: white;
+}
+
+tbody{
+  background-color: #3B556D;
+  color: white;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.custom-button {
+  background-color: #5FC2BA !important;
+  color: black !important;
+  width: 20%;
+}
+
+
+
+
+
+
+

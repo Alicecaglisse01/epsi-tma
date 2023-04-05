@@ -52,9 +52,10 @@ export class StockManagementComponent implements OnInit{
     const dialogRef = this.dialog.open(PopinProductComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      this.products.push(result);
+      if (result && result.name && result.price && result.quantity) {
+        this.products.push(result);
+      }
     });
-
   }
 
   addProduct(product: Produit) {
@@ -64,4 +65,21 @@ export class StockManagementComponent implements OnInit{
       this.apiService.modifyProduct(product);
     }
   }
+  deleteProduct(product: Produit) {
+    const index = this.products.indexOf(product);
+    if (index !== -1) {
+      this.products.splice(index, 1);
+      this.apiService.removeProduct(product).subscribe(
+        (response: any) => {
+          console.log(response);
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      );
+    }
+  }
+
+
+
 }

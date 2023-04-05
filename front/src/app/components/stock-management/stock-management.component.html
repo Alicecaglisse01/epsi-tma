@@ -7,30 +7,42 @@
 
   <ng-template [ngIf]="!isLoading">
   <h1 class="text-center mb-4">Gestion des stocks</h1>
-    <button mat-raised-button color="primary" class="button-responsive" (click)="openPopin()">ajouter Produit</button>
-    <div class="table-responsive" *ngIf="products.length > 0">
+
+  <div class="table-responsive" *ngIf="products.length > 0">
     <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Produit</th>
-      <th scope="col" >Prix</th>
-      <th scope="col" >Quantité</th>
-      <th scope="col">actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{ product.name }}</td>
-      <td>{{ product.price }}</td>
-      <td>{{ product.quantity }}</td>
-      <td>
-          <a [matTooltip]="minusElement" (click)="removeOneProduct(product)"><i class="fa fa-minus" aria-hidden="false"></i></a>
-        <a [matTooltip]="addElement" (click)="addProduct(product)"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-    </div>
+      <thead>
+        <tr>
+          <th scope="col">Produit</th>
+          <th scope="col" >Prix</th>
+          <th scope="col" >Quantité</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>
+            <a [matTooltip]="minusElement" (click)="removeOneProduct(product)">
+              <i class="fa fa-minus-circle" aria-hidden="false" style="color: #EA5863;cursor: pointer;"></i>
+            </a>
+            <a [matTooltip]="addElement" (click)="addProduct(product)" class="ml-1">
+              <i class="fa fa-plus-circle" aria-hidden="true" style="color: #5FC2BA;cursor: pointer;"></i>
+            </a>
+            <a aria-label="Supprimer" (click)="deleteProduct(product)" class="ml-1">
+              <mat-icon class="text-danger">delete</mat-icon>
+          </a>
+
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <div class="button-container">
+    <button mat-raised-button class="button-responsive custom-button" (click)="openPopin()">ajouter Produit</button>
+  </div>
   </ng-template>
 </div>
-
